@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ExportController;
+use App\Http\Controllers\PurchaseController;
 
 // 🏠 HOME (tanpa auth)
 Route::get('/', function () {
@@ -54,12 +55,21 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/keranjang', [KeranjangController::class, 'index'])->name('keranjang');
     Route::post('/checkout', [KeranjangController::class, 'checkout'])->name('checkout');
 
+    // 💰 Pembelian
+    Route::get('/purchase/{product}', [PurchaseController::class, 'create'])->name('purchases.create');
+    Route::post('/purchase', [PurchaseController::class, 'store'])->name('purchases.store');
+    Route::get('/purchase-history', [PurchaseController::class, 'history'])->name('purchases.history');
+
     // ====================== ADMIN =========================
 
     Route::middleware(['admin'])->group(function () {
         Route::get('/admin', [AdminController::class, 'indexadmin'])->name('admin.dashboard');
         Route::resource('/admin/products', ProductController::class, ['names' => 'products']);
         Route::resource('/admin/users', UserController::class, ['names' => 'users']);
+        
+        // 💰 Riwayat Pembelian Admin
+        Route::get('/admin/purchases', [PurchaseController::class, 'adminHistory'])->name('admin.purchases.history');
+        Route::delete('/admin/purchases/{purchase}', [PurchaseController::class, 'destroy'])->name('admin.purchases.destroy');
         
         // Export routes
         Route::get('/admin/export/products', [ExportController::class, 'exportProducts'])->name('admin.export.products');

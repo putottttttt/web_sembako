@@ -1,5 +1,8 @@
 <?php
 
+// Suppress deprecated warnings for Laravel compatibility with newer PHP versions
+error_reporting(E_ALL & ~E_DEPRECATED);
+
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 

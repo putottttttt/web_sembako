@@ -347,6 +347,13 @@ return [
             'icon' => 'fas fa-fw fa-user-plus',
             'active' => ['admin/users/create'],
         ],
+        ['header' => 'TRANSAKSI'],
+        [
+            'text' => 'Riwayat Pembelian',
+            'url' => 'admin/purchases',
+            'icon' => 'fas fa-fw fa-shopping-cart',
+            'active' => ['admin/purchases*'],
+        ],
         ['header' => 'SISTEM'],
         [
             'text' => 'Kembali ke Toko',

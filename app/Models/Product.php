@@ -17,4 +17,12 @@ class Product extends Model
         'harga',
         'gambar',
     ];
+
+    /**
+     * Relasi dengan Purchase
+     */
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
+    }
 }

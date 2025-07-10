@@ -11,8 +11,8 @@ return new class extends Migration
      */
 public function up(): void
 {
-    Schema::table('produks', function (Blueprint $table) {
-        if (!Schema::hasColumn('produks', 'kategori')) {
+    Schema::table('products', function (Blueprint $table) {
+        if (!Schema::hasColumn('products', 'kategori')) {
             $table->string('kategori')->after('harga')->nullable();
         }
     });
@@ -24,7 +24,7 @@ public function up(): void
      */
     public function down(): void
     {
-        Schema::table('produks', function (Blueprint $table) {
+        Schema::table('products', function (Blueprint $table) {
             $table->dropColumn('kategori');
         });
     }

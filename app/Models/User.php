@@ -51,4 +51,12 @@ class User extends Authenticatable
     {
         return 'username';
     }
+
+    /**
+     * Relasi dengan Purchase
+     */
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
+    }
 }

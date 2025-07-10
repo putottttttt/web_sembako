@@ -56,6 +56,8 @@
         <li><a href="#makanan"><i class=""></i> MAKANAN</a></li>
         <li><a href="#alatmandi"><i class=""></i> ALATMANDI</a></li>
         <li><a href="#pencuci"><i class=""></i> PENCUCI</a></li>
+        <li><a href="{{ route('keranjang') }}"><i class="bi bi-cart"></i> KERANJANG</a></li>
+        <li><a href="{{ route('purchases.history') }}"><i class="bi bi-clock-history"></i> RIWAYAT</a></li>
         <li class="mt-3">
           <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
             @csrf
@@ -105,12 +107,17 @@
             <h5 class="card-title">{{ $product->nama }}</h5>
             <p class="card-text">Rp {{ number_format($product->harga, 0, ',', '.') }}</p>
             
-            <form action="{{ route('beli.produk') }}" method="POST">
-              @csrf
-              <input type="hidden" name="nama" value="{{ $product->nama }}">
-              <input type="hidden" name="harga" value="{{ $product->harga }}">
-              <button type="submit" class="btn btn-primary">Beli</button>
-            </form>
+            <div class="btn-group w-100" role="group">
+              <form action="{{ route('beli.produk') }}" method="POST" class="flex-fill">
+                @csrf
+                <input type="hidden" name="nama" value="{{ $product->nama }}">
+                <input type="hidden" name="harga" value="{{ $product->harga }}">
+                <button type="submit" class="btn btn-primary btn-sm w-100">Keranjang</button>
+              </form>
+              <a href="{{ route('purchases.create', $product->id) }}" class="btn btn-success btn-sm flex-fill ml-1">
+                Beli Langsung
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -141,12 +148,17 @@
             <h5 class="card-title">{{ $product->nama }}</h5>
             <p class="card-text">Rp {{ number_format($product->harga, 0, ',', '.') }}</p>
             
-            <form action="{{ route('beli.produk') }}" method="POST">
-              @csrf
-              <input type="hidden" name="nama" value="{{ $product->nama }}">
-              <input type="hidden" name="harga" value="{{ $product->harga }}">
-              <button type="submit" class="btn btn-primary">Beli</button>
-            </form>
+            <div class="btn-group w-100" role="group">
+              <form action="{{ route('beli.produk') }}" method="POST" class="flex-fill">
+                @csrf
+                <input type="hidden" name="nama" value="{{ $product->nama }}">
+                <input type="hidden" name="harga" value="{{ $product->harga }}">
+                <button type="submit" class="btn btn-primary btn-sm w-100">Keranjang</button>
+              </form>
+              <a href="{{ route('purchases.create', $product->id) }}" class="btn btn-success btn-sm flex-fill ml-1">
+                Beli Langsung
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -179,12 +191,17 @@
             <h5 class="card-title">{{ $product->nama }}</h5>
             <p class="card-text">Rp {{ number_format($product->harga, 0, ',', '.') }}</p>
             
-            <form action="{{ route('beli.produk') }}" method="POST">
-              @csrf
-              <input type="hidden" name="nama" value="{{ $product->nama }}">
-              <input type="hidden" name="harga" value="{{ $product->harga }}">
-              <button type="submit" class="btn btn-primary">Beli</button>
-            </form>
+            <div class="btn-group w-100" role="group">
+              <form action="{{ route('beli.produk') }}" method="POST" class="flex-fill">
+                @csrf
+                <input type="hidden" name="nama" value="{{ $product->nama }}">
+                <input type="hidden" name="harga" value="{{ $product->harga }}">
+                <button type="submit" class="btn btn-primary btn-sm w-100">Keranjang</button>
+              </form>
+              <a href="{{ route('purchases.create', $product->id) }}" class="btn btn-success btn-sm flex-fill ml-1">
+                Beli Langsung
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -216,12 +233,17 @@
             <h5 class="card-title">{{ $product->nama }}</h5>
             <p class="card-text">Rp {{ number_format($product->harga, 0, ',', '.') }}</p>
             
-            <form action="{{ route('beli.produk') }}" method="POST">
-              @csrf
-              <input type="hidden" name="nama" value="{{ $product->nama }}">
-              <input type="hidden" name="harga" value="{{ $product->harga }}">
-              <button type="submit" class="btn btn-primary">Beli</button>
-            </form>
+            <div class="btn-group w-100" role="group">
+              <form action="{{ route('beli.produk') }}" method="POST" class="flex-fill">
+                @csrf
+                <input type="hidden" name="nama" value="{{ $product->nama }}">
+                <input type="hidden" name="harga" value="{{ $product->harga }}">
+                <button type="submit" class="btn btn-primary btn-sm w-100">Keranjang</button>
+              </form>
+              <a href="{{ route('purchases.create', $product->id) }}" class="btn btn-success btn-sm flex-fill ml-1">
+                Beli Langsung
+              </a>
+            </div>
           </div>
         </div>
       </div>
